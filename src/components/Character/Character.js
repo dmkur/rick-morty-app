@@ -5,7 +5,7 @@ const Character = ({item}) => {
     } = item
     return (
         <div>
-            <img src={image} alt={"hero"}/>
+            <img src={image} alt={"hero"} style={{height:'150px', width:'150px'}}/>
             <div>{name}</div>
             <div>{status}</div>
             <div>Last known location:{locationName}</div>
