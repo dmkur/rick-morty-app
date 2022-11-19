@@ -25,3 +25,6 @@ yarn-error.log*
 /.idea/vcs.xml
 /.idea/workspace.xml
 /.idea/misc.xml
+/.idea/modules.xml
+/.idea/rick-morty-app.iml
+/.idea/inspectionProfiles/Project_Default.xml
