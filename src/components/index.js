@@ -1,2 +1,5 @@
+export * from "./Characters/Characters"
 export * from "./Character/Character"
 export * from "./Home/Home"
+export * from "./Episode/Episode"
+export * from "./Location/Location"

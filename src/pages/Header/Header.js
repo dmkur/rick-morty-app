@@ -5,7 +5,9 @@ const Header = () => {
       <div>
         <ul>
             <li><Link to={'/'}>Home</Link></li>
-            <li><Link to={'/character'}>Character</Link></li>
+            <li><Link to={'/character'}>Characters</Link></li>
+            <li><Link to={'/episode'}>Episodes</Link></li>
+            <li><Link to={'/location'}>Locations</Link></li>
         </ul>
       </div>
   )
