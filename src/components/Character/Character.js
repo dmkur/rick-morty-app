@@ -8,7 +8,7 @@ const Character = ({item}) => {
     return (
         <div>
             <img src={image} alt={"hero"} style={{height:'150px', width:'150px'}}/>
-            <Link to={`${item.id}`}>
+            <Link to={`${item.id}`} state={{...item}}>
                 <div>{name}</div>
             </Link>
             <div>{status}</div>

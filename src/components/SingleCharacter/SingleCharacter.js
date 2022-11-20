@@ -1,28 +1,17 @@
-import {useParams} from "react-router-dom";
-import {useEffect, useState} from "react";
-import {getSingleCharacter} from "../../service/axios.service";
+import {useLocation} from "react-router-dom";
 
 const SingleCharacter = () => {
-    const {id} = useParams();
-    const [character, setCharacter] = useState({});
-    console.log(character, "STATE-INFO")
-
-
-    useEffect(() => {
-            getSingleCharacter(id).then(({data}) => {
-                const users = JSON.stringify(data)
-                setCharacter(JSON.parse(users))
-            })
-        }, [id])
-
+    const {state} = useLocation();
+    console.log(state)
+    const {image, name, status, gender, location:{name:Lname}} = state
 
     return (
         <div>
-            <div><img src={character.image} alt={"hero"}/></div>
-            <div>{character.name}</div>
-            <div>{character.status}</div>
-            <div>{character.gender}</div>
-            <div>{character.location.name}</div>
+            <div><img src={image} alt={"hero"}/></div>
+            <div>{name}</div>
+            <div>{status}</div>
+            <div>{gender}</div>
+            <div>{Lname}</div>
         </div>
     )
 
