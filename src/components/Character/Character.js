@@ -1,5 +1,5 @@
 const Character = ({item}) => {
-    console.log(item)
+    // console.log(item)
     const {
         name, status, image, location: {name: locationName}
     } = item

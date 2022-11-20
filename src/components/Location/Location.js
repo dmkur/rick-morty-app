@@ -1,13 +1,31 @@
 import {useEffect, useState} from "react";
 import {getAllLocations} from "../../service/axios.service";
+import {useSearchParams} from "react-router-dom";
 
 const Location = () => {
     const [locations, setLocations] = useState([]);
-    console.log(locations)
+    const [prev, setPrev] = useState('');
+    const [next, setNext] = useState('');
+    const [query, setQuery] = useSearchParams({page: '1'});
 
     useEffect(() => {
-        getAllLocations.then(({data}) => setLocations([...data.results]))
-    }, [])
+        getAllLocations({page: query.get("page")}).then(({data: {results, info}}) => {
+            console.log(info)
+            setLocations([...results])
+            setPrev(info.prev)
+            setNext(info.next)
+        })
+    }, [query])
+
+    function prevPage() {
+        const prev = Number(query.get("page"))-1;
+        setQuery({page: `${prev}`})
+    }
+    function nextPage() {
+        const next = Number(query.get("page"))+1;
+        setQuery({page: `${next}`})
+    }
+
     return (
         <div>
             {
@@ -20,6 +38,8 @@ const Location = () => {
                     </div>
                 )
             }
+            <button disabled={!prev} onClick={prevPage}>prev</button>
+            <button disabled={!next} onClick={nextPage}>next</button>
         </div>
     )
 };
