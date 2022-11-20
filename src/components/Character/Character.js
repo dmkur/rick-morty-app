@@ -1,3 +1,5 @@
+import {Link, Outlet} from "react-router-dom";
+
 const Character = ({item}) => {
     // console.log(item)
     const {
@@ -6,10 +8,13 @@ const Character = ({item}) => {
     return (
         <div>
             <img src={image} alt={"hero"} style={{height:'150px', width:'150px'}}/>
-            <div>{name}</div>
+            <Link to={`${item.id}`}>
+                <div>{name}</div>
+            </Link>
             <div>{status}</div>
             <div>Last known location:{locationName}</div>
             <hr/>
+
         </div>
     )
 };

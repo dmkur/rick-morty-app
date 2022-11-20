@@ -10,7 +10,6 @@ const Location = () => {
 
     useEffect(() => {
         getAllLocations({page: query.get("page")}).then(({data: {results, info}}) => {
-            console.log(info)
             setLocations([...results])
             setPrev(info.prev)
             setNext(info.next)
