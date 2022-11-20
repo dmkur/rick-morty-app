@@ -6,7 +6,7 @@ const axiosService = axios.create({
 });
 
 const getAllCharacters = ({page}) => axiosService.get(addURL.character, {params: {page}})
-const getSingleCharacter = (id) => axiosService.get(addURL.character + `/${id}`)
+const getSingleCharacter =(id) => axiosService.get(addURL.character + `/${id}`)
 const getAllEpisodes = ({page}) => axiosService.get(addURL.episode, {params: {page}})
 const getAllLocations = ({page}) => axiosService.get(addURL.location, {params: {page}})
 

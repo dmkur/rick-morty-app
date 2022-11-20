@@ -3,30 +3,29 @@ import {useEffect, useState} from "react";
 import {getSingleCharacter} from "../../service/axios.service";
 
 const SingleCharacter = () => {
-    const [single, setSingle] = useState({});
-
     const {id} = useParams();
+    const [character, setCharacter] = useState({});
+    console.log(character, "STATE-INFO")
+
 
     useEffect(() => {
-        getSingleCharacter(id).then(({data}) => {
-            setSingle(data)
-        })
-    }, [])
+            getSingleCharacter(id).then(({data}) => {
+                const users = JSON.stringify(data)
+                setCharacter(JSON.parse(users))
+            })
+        }, [id])
 
 
     return (
         <div>
-            <div>
-                <img src={single.image} alt={'hero'}/>
-            </div>
-            <div>{single.name}</div>
-            <div>{single.status}</div>
-            <div>{single.species}</div>
-            <div>{single.gender}</div>
-            {/*<div>{single.location.name}</div>*/}
-            <div>All episodes</div>
+            <div><img src={character.image} alt={"hero"}/></div>
+            <div>{character.name}</div>
+            <div>{character.status}</div>
+            <div>{character.gender}</div>
+            <div>{character.location.name}</div>
         </div>
     )
+
 };
 
 export {SingleCharacter};
